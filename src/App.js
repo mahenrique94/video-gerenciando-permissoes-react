@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import PermisssionGate from "./PermissionGate";
 
-function App() {
+function App({ permissions, user }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PermisssionGate
+      permissions={[
+        'canEdit',
+        'canDelete',
+        'canSave',
+      ]}
+      user={{ permissions: ['canEdit'] }}
+    >
+      <h1>Gerenciando permissões em aplicações React</h1>
+    </PermisssionGate>
   );
 }
 
